@@ -70,7 +70,7 @@ FASTLANE_LOCAL_FASTFILE_PATH_ANDROID=/Users/Thierry/Code/Ruby/JaguarTemplate/fas
 ```
 
 3. 初始化数据库和表结构
-> RAILS_ENV=production rake db:create 
+> RAILS_ENV=production rake db:create   
 > RAILS_ENV=production rake db:migrate
 
 4. 启动命令
