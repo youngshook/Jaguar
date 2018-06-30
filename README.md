@@ -38,10 +38,41 @@ Jaguar使用的是 MySQL5.6 版本
 
 ### 初始化
 
-1. 构建本地配置文件：
+1. 拷贝本地配置文件：
 
 > cp .env .env.local
 
-2. 初始化数据库和表结构
+2. 编辑 .env.local 的配置项：
+```
+// 默认就行
+QINIU_URL = http://7xjlg5.com1.z0.glb.clouddn.com
+
+// Gitlab 的配置，团队的 Gitlab 地址和 Token
+GITLAB_URL=http://git.yourcompany.com/
+GITLAB_PRIVATE_TOKEN=your_gitlab_private_token
+
+// Jaguar 的配置
+JAGUAR_SECRET_KEY_BASE=your_rails_secret_key_base
+JAGUAR_VERSION=0.3.0 Beta
+JAGUAR_API_KEY=your_api_key
+JAGUAR_DATABASE_PASSWORD=your_db_password
+JAGUAR_HOST=http://your_domain.com
+
+// 部署的 Mac 系统的密码
+SYSTEM_PASSWORD=your_system_password
+
+// Fastlane 的配置
+FASTLANE_USER=your_apple_id@yourcompany.com
+FASTLANE_PASSWORD=123456
+FASTLANE_DEV_PORTAL_TEAM_ID=123456
+FASTLANE_LOCAL_FASTFILE_PATH_IOS=/Users/Thierry/Code/Ruby/JaguarTemplate/fastlane/ios_fastfile
+FASTLANE_LOCAL_FASTFILE_PATH_ANDROID=/Users/Thierry/Code/Ruby/JaguarTemplate/fastlane/android_fastfile
+```
+
+3. 初始化数据库和表结构
 > RAILS_ENV=production rake db:create 
 > RAILS_ENV=production rake db:migrate
+
+4. 启动命令
+启动命令行工具在为 bin/jaugar，shell 脚本，用法
+> RAILS_ENV=your_env sh bin/jaguar {start_server|stop_server|restart_server|start_sidekiq|stop_sidekiq|restart_sidekiq}
